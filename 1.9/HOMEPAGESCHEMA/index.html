@@ -1,0 +1,17 @@
+const express = require("express");
+const app = express();
+
+const HomePageSchema = new Schema({
+color: {
+type: String,
+},
+});
+const HomePage = mongoose.model('homepages', HomePageSchema);
+
+app.set('view engine', 'ejs');
+
+app.get("/", () => {
+res.sendFile(__dirname + "/index.html");
+});
+
+app.listen(3000, () => {});
